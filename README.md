@@ -1,12 +1,14 @@
 # SSH Tunnel Guide
 
-╮(╯_╰)╭
+希望写完这篇小文档就再也不需要看这篇小文档了 ╮(╯_╰)╭
 
 ## TLDR
 
-简单来说，一句话即可连接远程服务器打开 SSH 隧道，并在本地 9999 端口开启 socks5 服务：
+一句话连接远程服务器打开 SSH 隧道，并在本地 9999 端口开启 socks5 转发服务：
 
-```ssh -CTND 9999 username@remote_host```
+```
+ssh -CTND 9999 username@remote_host
+```
 
 ## Options
 
@@ -25,6 +27,6 @@
 指定本地端口。这就是你用来连接的隧道入口。
 
 - __`-f`__ Requests ssh to go to background just before command execution.  
-使 SSH 隧道在后台运行。用了这个之后要停止服务就需要杀进程 ID 了：
+使 SSH 隧道在后台运行。用了这个之后想停止服务就要杀进程 ID 了：
     - `ps aux | grep ssh` 查找 ssh 的进程
     - `kill processId` 杀 ID
